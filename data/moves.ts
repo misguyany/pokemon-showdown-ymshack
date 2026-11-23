@@ -1,6 +1,25 @@
 // List of flags and their descriptions can be found in sim/dex-moves.ts
 
 export const Moves: import('../sim/dex-moves').MoveDataTable = {
+	defendsnorest: {
+		num: 9001,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Defend Snorest",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1 },
+		secondary: {
+			chance: 100,
+			onHit(target, source, move) {
+				if (source.isActive) target.addVolatile('trapped', source, move, 'trapper');
+			},
+		},
+		target: "normal",
+		type: "Grass",
+		contestType: "Tough",
+	},
 	"10000000voltthunderbolt": {
 		num: 719,
 		accuracy: true,

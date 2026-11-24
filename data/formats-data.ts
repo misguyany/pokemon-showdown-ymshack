@@ -1,4 +1,13 @@
 export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable = {
+	greric: {
+		tier: "LC",
+	},
+	grassygato: {
+		tier: "NFE",
+	},
+	snorterra: {
+		tier: "OU",
+	},
 	bulbasaur: {
 		tier: "LC",
 	},

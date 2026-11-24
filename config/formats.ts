@@ -19,6 +19,32 @@ The column value will be ignored for repeat sections.
 
 export const Formats: import('../sim/dex-formats').FormatList = [
 
+// Modded Formats
+	///////////////////////////////////////////////////////////////////
+
+	{
+		section: "Modded Formats",
+	},
+	{
+		name: "[Gen 9] Gobbeldegook Singles",
+		desc: `welcome to neo yms brother`,
+		mod: 'gen9',
+		rated: false,
+		ruleset: ['Standard NatDex', 'Sleep Moves Clause', '!Sleep Clause Mod'],
+		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Shed Tail'],
+		unbanlist: ['Greric', 'Grassygato', 'Snorterra', 'Defend Snorest'],
+	},
+	{
+		name: "[Gen 9] Super Free-For-All",
+		desc: `Curated by Geist Lair and Stallpion Streamer Academy. The best format ever!`,
+		mod: 'gen9',
+		gameType: 'freeforall',
+		rated: false,
+		ruleset: ['Standard NatDex', '!OHKO Clause', '!Sleep Clause Mod', '!Species Clause'],
+		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass', 'Last Respects', 'Power Construct', 'Stealth Rock', 'Spikes', 'Shedinja', 'Dark Void', 'No Guard + Fissure', 'No Guard + Sheer Cold', 'No Guard + Guillotine', 'No Guard + Horn Drill', 'Spotlight', 'Dracovish', 'Eerie Impulse + Charm', 'Ceaseless Edge', 'Stone Axe', 'Jirachi', 'Wish', 'Thunder Wave', 'Glare', 'Xerneas', 'Yveltal', 'Poison Heal', 'Nuzzle', 'Ferrothorn', 'Neutralizing Gas', 'Toxapex', 'Revival Blessing ++ Assist'],
+		unbanlist: ['Greric', 'Grassygato', 'Snorterra', 'Defend Snorest', 'Toxic Chain', 'Acupressure', 'Aromatic Mist', 'Coaching', 'Court Change', 'Decorate', 'Dragon Cheer', 'Final Gambit', 'Flatter', 'Fling', 'Floral Healing', 'Follow Me', 'Heal Pulse', 'Heart Swap', 'Hypnosis', 'Lovely Kiss', 'Malignant Chain', 'Poison Fang', 'Rage Powder', 'Sing', 'Skill Swap', 'Sleep Powder', 'Spicy Extract', 'Spore', 'Swagger', 'Toxic', 'Yawn', 'Fissure', 'Guillotine', 'Horn Drill', 'Sheer Cold', 'Annihilape', 'Hoopa-Unbound', 'Ursaluna-Base', 'Ursaluna-Bloodmoon', 'Darkrai', 'Deoxys-Base', 'Deoxys-Attack', 'Chi-Yu', 'Meganium-Mega','Abomasnow-Mega','Absol-Mega','Aerodactyl-Mega','Aggron-Mega','Altaria-Mega','Ampharos-Mega','Audino-Mega','Banette-Mega','Barbaracle-Mega','Baxcalibur-Mega','Beedrill-Mega','Blastoise-Mega','Blaziken-Mega','Camerupt-Mega','Chandelure-Mega','Chesnaught-Mega','Chimecho-Mega','Clefable-Mega','Crabominable-Mega','Darkrai-Mega','Delphox-Mega','Diancie-Mega','Dragalge-Mega','Dragonite-Mega','Drampa-Mega','Eelektross-Mega','Emboar-Mega','Excadrill-Mega','Falinks-Mega','Feraligatr-Mega','Froslass-Mega','Gallade-Mega','Garchomp-Mega','Gardevoir-Mega','Gengar-Mega','Glalie-Mega','Glimmora-Mega','Golisopod-Mega','Golurk-Mega','Greninja-Mega','Gyarados-Mega','Hawlucha-Mega','Heatran-Mega','Heracross-Mega','Houndoom-Mega','Kangaskhan-Mega','Latias-Mega','Latios-Mega','Lopunny-Mega','Lucario-Mega','Malamar-Mega','Manectric-Mega','Mawile-Mega','Medicham-Mega','Meowstic-F-Mega','Meowstic-M-Mega','Pidgeot-Mega','Pinsir-Mega','Pyroar-Mega','Sableye-Mega','Sceptile-Mega','Scizor-Mega','Scolipede-Mega','Scovillain-Mega','Scrafty-Mega','Sharpedo-Mega','Skarmory-Mega','Slowbro-Mega','Staraptor-Mega','Starmie-Mega','Steelix-Mega','Swampert-Mega','Tatsugiri-Curly-Mega','Tatsugiri-Droopy-Mega','Tatsugiri-Stretchy-Mega','Tyranitar-Mega','Venusaur-Mega','Victreebel-Mega','Zeraora-Mega','Charizard-Mega-X','Charizard-Mega-Y','Raichu-Mega-X','Raichu-Mega-Y','Absol-Mega-Z','Garchomp-Mega-Z','Lucario-Mega-Z','Abomasite','Absolite','Absolite Z','Aerodactylite','Aggronite','Alakazite','Altarianite','Ampharosite','Audinite','Banettite','Barbaracite','Baxcalibrite','Beedrillite','Blastoisinite','Blazikenite','Cameruptite','Chandelurite','Charizardite X','Charizardite Y','Chesnaughtite','Chimechite','Clefablite','Crabominite','Darkranite','Delphoxite','Diancite','Dragalgite','Dragoninite','Drampanite','Eelektrossite','Emboarite','Excadrite','Falinksite','Feraligite','Froslassite','Galladite','Garchompite','Garchompite Z','Gardevoirite','Gengarite','Glalitite','Glimmoranite','Golisopite','Golurkite','Greninjite','Gyaradosite','Hawluchanite','Heatranite','Heracronite','Houndoominite','Kangaskhanite','Latiasite','Latiosite','Lopunnite','Lucarionite','Lucarionite Z','Malamarite','Manectite','Mawilite','Medichamite','Meganiumite','Meowsticite','Metagrossite','Pidgeotite','Pinsirite','Pyroarite','Raichunite X','Raichunite Y','Sablenite','Salamencite','Sceptilite','Scizorite','Scolipite','Scovillainite','Scraftinite','Sharpedonite','Skarmorite','Slowbronite','Staraptite','Starminite','Steelixite','Swampertite','Tyranitarite','Tatsugirinite','Venusaurite','Victreebelite','Zeraorite', 'Terapagos', 'Arceus-Bug', 'Floette-Eternal', 'Mollux', 'Arghonaut', 'Astrolotl', 'Aurumoth', 'Caribolt', 'Cawmodore', 'Chromera', 'Chuggalong', 'Colossoil', 'Cresceidon', 'Crucibelle', 'Crucibellite', 'Equilibra', 'Cyclohm', 'Fidgit', 'Hemogoblin', 'Jumbao', 'Kerfluffle', 'Kitsunoh', 'Krilowatt', 'Malaconda', 'Miasmaw', 'Naviathan', 'Necturna', 'Pajantom', 'Plasmanta', 'Pyroak', 'Ramnarok', 'Revenankh', 'Saharaja', 'Shox', 'Smokomodo', 'Stratagem', 'Syclant', 'Tomohawk', 'Venomicon', 'Venomicon-Epilogue', 'Vile Vial', 'Volkraken', 'Voodoom', 'Argalis', 'Caimanoe', 'Coribalis', 'Draggalong', 'Duohm', 'Electrelk', 'Flarelm', 'Scattervein', 'Smoguana', 'Tactite', 'Ababo', 'Brattler', 'Cawdet', 'Chuggon', 'Cupra', 'Dorsoil', 'Embirch', 'Fawnifer', 'Floatoy', 'Flox', 'Justyke', 'Miasmite', 'Monohm', 'Mumbao', 'Necturine', 'Nohface', 'Pluffle', 'Privatyke', 'Protowatt', 'Persistent', 'Rebble', 'Saharascal', 'Scratchet', 'Smogecko', 'Snugglow', 'Mountaineer',  'Solotl', 'Swirlpool', 'Syclar', 'Volkritter', 'Voodoll', 'Polar Flare', 'Shadow Strike', 'Paleo Wave', 'Chien-Pao', 'Obliteryx', 'Watmel Berry', 'Zygarde', 'Landorus-Incarnate', 'Snaelstrom', 'Urshifu-Rapid-Strike', 'Urshifu-Single-Strike', 'MissingNo.', 'Shaymin-Sky', 'Bug Gem', 'Dark Gem', 'Dragon Gem', 'Electric Gem', 'Fairy Gem', 'Fighting Gem', 'Fire Gem', 'Flying Gem', 'Ghost Gem', 'Grass Gem', 'Ice Gem', 'Poison Gem', 'Psychic Gem', 'Rock Gem', 'Steel Gem', 'Water Gem', 'Iron Bundle', 'Pikachu-Starter', 'Eevee-Starter', 'Zippy Zap', 'Floaty Fall', 'Splishy Splash', 'Pika Papow', 'Bouncy Bubble', 'Buzzy Buzz', 'Sizzly Slide', 'Glitzy Glow', 'Baddy Bad', 'Sappy Seed', 'Freezy Frost', 'Sparkly Swirl', 'Veevee Volley', 'Berserk Gene', 'Pamtre Berry'],
+	},
+
 	// S/V Singles
 	///////////////////////////////////////////////////////////////////
 

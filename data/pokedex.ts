@@ -41,7 +41,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 	snorterra: {
 		num: 9003,
 		name: "Snorterra",
-		types: ["Grass", "Grass"],
+		types: ["Grass"],
 		genderRatio: { M: 0.875, F: 0.125 },
 		baseStats: { hp: 85, atk: 75, def: 91, spa: 118, spd: 81, spe: 80 },
 		abilities: { 0: "Overgrow", H: "Prankster" },

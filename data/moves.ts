@@ -3,22 +3,29 @@
 export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	defendsnorest: {
 		num: 9001,
-		accuracy: 100,
-		basePower: 80,
-		category: "Special",
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
 		name: "Defend Snorest",
-		pp: 10,
+		pp: 5,
 		priority: 0,
-		flags: { protect: 1, mirror: 1, metronome: 1 },
-		secondary: {
-			chance: 100,
-			onHit(target, source, move) {
-				if (source.isActive) target.addVolatile('trapped', source, move, 'trapper');
+		flags: { snatch: 1, metronome: 1 },
+		volatileStatus: 'defendsnorest',
+		onTry(source, target, move) {
+			if (source.volatiles['defendsnorest']) return false;
+		},
+		condition: {
+			onStart(pokemon) {
+				if (!pokemon.addVolatile('trapped')) return false;
+				this.add('-start', pokemon, 'move: Defend Snorest');
 			},
 		},
-		target: "normal",
+		boosts: {
+			def: 2,
+			spd: 2,
+		},
+		target: "self",
 		type: "Grass",
-		contestType: "Tough",
 	},
 	"10000000voltthunderbolt": {
 		num: 719,

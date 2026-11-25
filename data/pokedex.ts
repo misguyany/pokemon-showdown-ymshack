@@ -1,4 +1,16 @@
 export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
+	piscea: {
+		num: 8999,
+		name: "Piscea",
+		types: ["Water", "Dark"],
+		gender: "N",
+		baseStats: { hp: 68, atk: 139, def: 63, spa: 83, spd: 51, spe: 166 },
+		abilities: { 0: "Intimidate", 1: "Beast Boost", H: "Dazzling" },
+		heightm: 6.3,
+		weightkg: 502,
+		color: "Blue",
+		eggGroups: ["Undiscovered"],
+	},
 	greric: {
 		num: 9001,
 		name: "Greric",

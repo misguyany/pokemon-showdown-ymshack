@@ -11,6 +11,24 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 	snorterra: {
 		tier: "OU",
 	},
+	fieric: {
+		tier: "LC",
+	},
+	firerandall: {
+		tier: "NFE",
+	},
+	furnacio: {
+		tier: "OU",
+	},
+	wateric: {
+		tier: "LC",
+	},
+	weel: {
+		tier: "NFE",
+	},
+	wetwheelie: {
+		tier: "OU",
+	},
 	bulbasaur: {
 		tier: "LC",
 	},

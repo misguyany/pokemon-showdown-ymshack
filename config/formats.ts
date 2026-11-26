@@ -31,8 +31,8 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9',
 		rated: false,
 		ruleset: ['Standard NatDex', 'Sleep Moves Clause', '!Sleep Clause Mod'],
-		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Shed Tail'],
-		unbanlist: ['Greric', 'Grassygato', 'Snorterra', 'Defend Snorest'],
+		banlist: ['ND Uber', 'ND AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Shed Tail'],
+		unbanlist: ['Greric', 'Grassygato', 'Snorterra', 'Defend Snorest', 'Fieric', 'Firerandall', 'Furnacio', 'El Fuego Diablo', 'Wateric', 'Weel', 'Wetwheelie', 'Wet Willy', 'Blazing Torque','Wicked Torque','Noxious Torque','Combat Torque','Magical Torque','Zippy Zap', 'Floaty Fall', 'Splishy Splash', 'Pika Papow', 'Bouncy Bubble', 'Buzzy Buzz', 'Sizzly Slide', 'Glitzy Glow', 'Baddy Bad', 'Sappy Seed', 'Freezy Frost', 'Sparkly Swirl', 'Veevee Volley'],
 	},
 	{
 		name: "[Gen 9] Super Free-For-All",

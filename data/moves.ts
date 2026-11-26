@@ -27,6 +27,45 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "self",
 		type: "Grass",
 	},
+	elfuegodiablo: {
+		num: 9002,
+		accuracy: true,
+		basePower: 200,
+		category: "Special",
+		name: "El Fuego Diablo",
+		pp: 5,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		onTry(source) {
+			this.hint("Happy Cinco de Mayo!");
+		},
+		status: 'brn',
+		target: "allAdjacent",
+		type: "Fire",
+	},
+	wetwilly: {
+		num: 9003,
+		accuracy: 100,
+		basePower: 40,
+		category: "Physical",
+		name: "Wet Willy",
+		pp: 10,
+		priority: 3,
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
+		onTry(source) {
+			if (source.activeMoveActions > 1) {
+				this.hint("You can only wet your willy on your first turn out.");
+				return false;
+			}
+		},
+		secondary: {
+			chance: 100,
+			volatileStatus: 'flinch',
+		},
+		willCrit: true,
+		target: "normal",
+		type: "Water",
+	},
 	"10000000voltthunderbolt": {
 		num: 719,
 		accuracy: true,

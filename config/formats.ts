@@ -53,6 +53,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard', '!OHKO Clause', '!Sleep Clause Mod', '!Species Clause'],
 		banlist: ['Uber'],
 	},
+	{
+		name: "[Gen 1] Tradebacks Free-For-All",
+		desc: `self explanatory`,
+		mod: 'gen1',
+		gameType: 'freeforall',
+		rated: false,
+		ruleset: ['Standard', '!OHKO Clause', '!Sleep Clause Mod', '!Species Clause', 'Allow Tradeback'],
+		banlist: ['Uber'],
+	},
 
 	// S/V Singles
 	///////////////////////////////////////////////////////////////////

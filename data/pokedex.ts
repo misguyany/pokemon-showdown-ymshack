@@ -21,12 +21,13 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		forme: "Final",
 		gender: "N",
 		baseStats: { hp: 105, atk: 175, def: 80, spa: 175, spd: 80, spe: 150 },
-		abilities: { 0: "Roaches When You Hit Them With That Dollar Store Boss Fight" },
+		abilities: { 0: "Truant" },
 		heightm: 3.2,
 		weightkg: 99,
 		color: "Black",
 		eggGroups: ["Undiscovered"],
 		requiredMove: "Celebrate",
+		battleOnly: ["Shadow Buddy"]
 	},
 	piscea: {
 		num: 8999,

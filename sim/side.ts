@@ -41,6 +41,7 @@ export interface ChosenAction {
 	mega?: boolean | null; // true if megaing or ultra bursting
 	megax?: boolean | null; // true if megaing x
 	megay?: boolean | null; // true if megaing y
+	finalevo?: boolean | null;
 	zmove?: string; // if zmoving, the name of the zmove
 	maxMove?: string; // if dynamaxed, the name of the max move
 	terastallize?: string; // if terastallizing, tera type
@@ -58,6 +59,7 @@ export interface Choice {
 	zMove: boolean; // true if a Z-move has already been selected
 	mega: boolean; // true if a mega evolution has already been selected
 	ultra: boolean; // true if an ultra burst has already been selected
+	finalevo: boolean;
 	dynamax: boolean; // true if a dynamax has already been selected
 	terastallize: boolean; // true if a terastallization has already been inputted
 }
@@ -280,6 +282,7 @@ export class Side {
 			switchIns: new Set(),
 			zMove: false,
 			mega: false,
+			finalevo: false,
 			ultra: false,
 			dynamax: false,
 			terastallize: false,
@@ -337,6 +340,7 @@ export class Side {
 				if (action.mega) details += (action.pokemon!.item === 'ultranecroziumz' ? ` ultra` : ` mega`);
 				if (action.megax) details += ` megax`;
 				if (action.megay) details += ` megay`;
+				if (action.finalevo) details += ` finalevo`;
 				if (action.zmove) details += ` zmove`;
 				if (action.maxMove) details += ` dynamax`;
 				if (action.terastallize) details += ` terastallize`;
@@ -555,7 +559,7 @@ export class Side {
 	chooseMove(
 		moveText?: string | number,
 		targetLoc = 0,
-		event: 'mega' | 'megax' | 'megay' | 'zmove' | 'ultra' | 'dynamax' | 'terastallize' | '' = ''
+		event: 'finalevo' | 'mega' | 'megax' | 'megay' | 'zmove' | 'ultra' | 'dynamax' | 'terastallize' | '' = ''
 	) {
 		if (this.requestState !== 'move') {
 			return this.emitChoiceError(`Can't move: You need a ${this.requestState} response`);
@@ -799,6 +803,13 @@ export class Side {
 		if (ultra && this.choice.ultra && !mixandmega) {
 			return this.emitChoiceError(`Can't move: You can only ultra burst once per battle`);
 		}
+		const finalevo = (event === 'finalevo');
+		if (finalevo && !pokemon.canFinalEvo) {
+			return this.emitChoiceError(`Can't move: ${pokemon.name} can't get an erection`);
+		}
+		if (finalevo && this.choice.finalevo && !mixandmega) {
+			return this.emitChoiceError(`Can't move: ${pokemon.name} can't get an erection`);
+		}
 		let dynamax = (event === 'dynamax');
 		const canDynamax = (this.activeRequest as MoveRequest)?.active[this.active.indexOf(pokemon)].canDynamax;
 		if (dynamax && (this.choice.dynamax || !canDynamax)) {
@@ -840,6 +851,7 @@ export class Side {
 			mega: mega || ultra,
 			megax,
 			megay,
+			finalevo,
 			zmove: zMove,
 			maxMove: maxMove ? maxMove.id : undefined,
 			terastallize: terastallize ? pokemon.teraType : undefined,
@@ -853,6 +865,7 @@ export class Side {
 
 		if (mega || megax || megay) this.choice.mega = true;
 		if (ultra) this.choice.ultra = true;
+		if (finalevo) this.choice.finalevo = true;
 		if (zMove) this.choice.zMove = true;
 		if (dynamax) this.choice.dynamax = true;
 		if (terastallize) this.choice.terastallize = true;
@@ -896,6 +909,10 @@ export class Side {
 			}
 			if (req.canUltraBurst) {
 				req.canUltraBurst = false;
+				updated = true;
+			}
+			if (req.canFinalEvo) {
+				req.canFinalEvo = false;
 				updated = true;
 			}
 			if (req.canZMove) {
@@ -1151,6 +1168,7 @@ export class Side {
 			mega: false,
 			ultra: false,
 			dynamax: false,
+			finalevo: false,
 			terastallize: false,
 		};
 	}
@@ -1232,7 +1250,7 @@ export class Side {
 				const original = data;
 				const error = () => this.emitChoiceError(`Conflicting arguments for "move": ${original}`);
 				let targetLoc: number | undefined;
-				let event: 'mega' | 'megax' | 'megay' | 'zmove' | 'ultra' | 'dynamax' | 'terastallize' | '' = '';
+				let event: 'mega' | 'finalevo' | 'megax' | 'megay' | 'zmove' | 'ultra' | 'dynamax' | 'terastallize' | '' = '';
 				while (true) {
 					// If data ends with a number, treat it as a target location.
 					// We need to special case 'Conversion 2' so it doesn't get
@@ -1261,6 +1279,10 @@ export class Side {
 					} else if (data.endsWith(' ultra')) {
 						if (event) return error();
 						event = 'ultra';
+						data = data.slice(0, -6);
+					} else if (data.endsWith(' finalevo')) {
+						if (event) return error();
+						event = 'finalevo';
 						data = data.slice(0, -6);
 					} else if (data.endsWith(' dynamax')) {
 						if (event) return error();

@@ -510,7 +510,7 @@ export class Pokemon {
 		this.speed = 0;
 
 		this.canMegaEvo = this.battle.actions.canMegaEvo(this);
-		this.canFinalEvo = this.battle.actions.canMegaEvo(this);
+		this.canFinalEvo = this.battle.actions.canFinalEvo(this);
 		this.canMegaEvoX = this.battle.actions.canMegaEvoX?.(this);
 		this.canMegaEvoY = this.battle.actions.canMegaEvoY?.(this);
 		this.canUltraBurst = this.battle.actions.canUltraBurst(this);
@@ -1076,7 +1076,7 @@ export class Pokemon {
 		if (!skipChecks) {
 			if (!this.side.canDynamaxNow()) return;
 			if (
-				this.species.isMega || this.species.isPrimal || this.species.forme === "Ultra" ||
+				this.species.isMega || this.species.isPrimal || this.species.forme === "Ultra" || this.species.forme === "Final" ||
 				this.getItem().zMove || this.canMegaEvo
 			) {
 				return;
@@ -1470,7 +1470,11 @@ export class Pokemon {
 			if (this.terastallized) details += `, tera:${this.terastallized}`;
 			this.battle.add('detailschange', this, details);
 			this.updateMaxHp();
-			if (!source) {
+			if (speciesId === 'shadowbuddy') {
+				this.canTerastallize = null;
+				this.battle.add('-final', this, apparentSpecies, species.requiredMove);
+				this.moveThisTurnResult = true; // Mega Evolution counts as an action for Truant
+			} else if (!source) {
 				// Tera forme
 				// Ogerpon/Terapagos text goes here
 				this.formeRegression = true;

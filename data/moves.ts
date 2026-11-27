@@ -39,6 +39,13 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		onTry(source) {
 			this.hint("Happy Cinco de Mayo!");
 		},
+		self: {
+			boosts: {
+				spe: -1,
+				def: -1,
+				spd: -1,
+			},
+		},
 		status: 'brn',
 		target: "allAdjacent",
 		type: "Fire",

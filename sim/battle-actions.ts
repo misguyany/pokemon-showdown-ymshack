@@ -1946,8 +1946,10 @@ export class BattleActions {
 	}
 
 	canFinalEvo(pokemon: Pokemon) {
-		if (['Shadow Buddy'].includes(pokemon.baseSpecies.name) &&
-			pokemon.baseMoves.includes('celebrate')) {
+		const species = pokemon.baseSpecies;
+		const altForme = species.otherFormes && this.dex.species.get(species.otherFormes[0]);
+		if (pokemon.baseSpecies.name === 'Shadow Buddy' && altForme?.requiredMove &&
+			pokemon.baseMoves.includes(toID(altForme.requiredMove))) {
 			return "Shadow Buddy-Final";
 		}
 		return null;

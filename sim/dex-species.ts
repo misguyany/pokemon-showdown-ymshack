@@ -226,6 +226,8 @@ export class Species extends BasicEffect implements Readonly<BasicEffect & Speci
 	readonly mother?: string;
 	/** True if a pokemon is mega. */
 	readonly isMega?: boolean;
+
+	readonly isFinal?: boolean;
 	/** True if a pokemon is primal. */
 	declare readonly isPrimal?: boolean;
 	/** Name of its Gigantamax move, if a pokemon is capable of gigantamaxing. */
@@ -329,10 +331,11 @@ export class Species extends BasicEffect implements Readonly<BasicEffect & Speci
 		this.maxHP = data.maxHP || undefined;
 		this.isMega = this.forme.includes('Mega') || undefined;
 		this.isPrimal = this.forme === 'Primal' || undefined;
+		this.isFinal = this.forme === 'Final' || undefined;
 		this.canGigantamax = data.canGigantamax || undefined;
 		this.gmaxUnreleased = !!data.gmaxUnreleased;
 		this.cannotDynamax = !!data.cannotDynamax;
-		this.battleOnly = data.battleOnly || (this.isMega || this.isPrimal ? this.baseSpecies : undefined);
+		this.battleOnly = data.battleOnly || (this.isMega || this.isFinal || this.isPrimal ? this.baseSpecies : undefined);
 		this.changesFrom = data.changesFrom ||
 			(this.battleOnly !== this.baseSpecies ? this.battleOnly : this.baseSpecies);
 		if (Array.isArray(this.changesFrom)) this.changesFrom = this.changesFrom[0];

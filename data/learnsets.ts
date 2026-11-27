@@ -14,7 +14,7 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 			nastyplot: ["9L35"],
 			crunch: ["9L40"],
 			spiritshackle: ["9L45"],
-			nightdaze: ["9L50"],
+			baddybad: ["9L50"],
 			obstruct: ["9L55"],
 			bittermalice: ["9L60"],
 			spectralthief: ["9L65"],

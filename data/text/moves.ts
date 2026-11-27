@@ -1,4 +1,19 @@
 export const MovesText: { [id: IDEntry]: MoveText } = {
+	defendsnorest: {
+		name: "Defend Snorest",
+		desc: "The user Defends their Snorest. (needs citation)",
+		shortDesc: "Raises the user's Defense, Sp. Def by 2. Traps user.",
+	},
+	elfuegodiablo: {
+		name: "El Fuego Diablo",
+		desc: "Lowers the user's Speed, Defense, and Special Defense by 1 stage. Hits and burns adjacent Pokemon.",
+		shortDesc: "Lowers the user's Defense, Sp. Def, Speed by 1. Burns foes.",
+	},
+	wetwilly: {
+		name: "Wet Willy",
+		desc: "Has a 100% chance to make the target flinch. Fails unless it is the user's first turn on the field. Always results in a critical hit.",
+		shortDesc: "Hits first. First turn out only. 100% flinch chance. Always results in a critical hit.",
+	},
 	"10000000voltthunderbolt": {
 		name: "10,000,000 Volt Thunderbolt",
 		desc: "Has a very high chance for a critical hit.",

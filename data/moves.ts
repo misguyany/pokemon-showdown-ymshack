@@ -29,7 +29,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	},
 	elfuegodiablo: {
 		num: 9002,
-		accuracy: true,
+		accuracy: 100,
 		basePower: 200,
 		category: "Special",
 		name: "El Fuego Diablo",

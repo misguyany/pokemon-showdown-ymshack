@@ -1945,6 +1945,14 @@ export class BattleActions {
 		return megaEvolution && megaEvolution !== species.name ? megaEvolution : null;
 	}
 
+	canFinalEvo(pokemon: Pokemon) {
+		if (['Shadow Buddy'].includes(pokemon.baseSpecies.name) &&
+			pokemon.baseMoves.includes('celebrate')) {
+			return "Shadow Buddy-Final";
+		}
+		return null;
+	}
+
 	canUltraBurst(pokemon: Pokemon) {
 		if (['Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane'].includes(pokemon.baseSpecies.name) &&
 			pokemon.getItem().id === 'ultranecroziumz') {
@@ -1954,16 +1962,19 @@ export class BattleActions {
 	}
 
 	runMegaEvo(pokemon: Pokemon) {
-		const speciesid = pokemon.canMegaEvo || pokemon.canUltraBurst;
+		const speciesid = pokemon.canMegaEvo || pokemon.canFinalEvo || pokemon.canUltraBurst;
 		if (!speciesid) return false;
 
 		pokemon.formeChange(speciesid, pokemon.getItem(), true);
 
 		// Limit one mega evolution
 		const wasMega = pokemon.canMegaEvo;
+		const wasFinal = pokemon.canFinalEvo;
 		for (const ally of pokemon.side.pokemon) {
 			if (wasMega) {
 				ally.canMegaEvo = false;
+			} else if (wasFinal) {
+				ally.canFinalEvo = null;
 			} else {
 				ally.canUltraBurst = null;
 			}

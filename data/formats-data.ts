@@ -1,4 +1,10 @@
 export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable = {
+	shadowbuddy: {
+		tier: "ZU",
+	},
+	shadowbuddyfinal: {
+		tier: "ZU",
+	},
 	piscea: {
 		tier: "LC",
 	},

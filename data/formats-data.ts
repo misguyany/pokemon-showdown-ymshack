@@ -6288,4 +6288,37 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		isNonstandard: "Custom",
 		tier: "Illegal",
 	},
+	terroot: {
+		tier: "LC",
+	},
+	geminirt: {
+		tier: "NFE",
+	},
+	gaiarth: {
+		tier: "OU",
+		doublesTier: "(DOU)",
+		natDexTier: "OU",
+	},
+	kindite: {
+		tier: "LC",
+	},
+	sizzlit: {
+		tier: "NFE",
+	},
+	magmantle: {
+		tier: "OU",
+		doublesTier: "(DOU)",
+		natDexTier: "OU",
+	},
+	ribbomb: {
+		tier: "LC",
+	},
+	frodiary: {
+		tier: "NFE",
+	},
+	detoadnate: {
+		tier: "OU",
+		doublesTier: "(DOU)",
+		natDexTier: "OU",
+	},
 };
